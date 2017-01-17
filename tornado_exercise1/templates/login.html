@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+<!--继承base.html-->
+{% block body %}
+<!--重写body block-->
+<!--子模板不能在block标签外面定义内容-->
+    {% if error %}
+        <span style="color: red">Error: {{ error }}</span><p>
+    {% end %}
+    <form action="/auth/login" method="POST">
+      Email: <input name="email" type="text"><br>
+      Password: <input name="password" type="password"><br>
+      {% module xsrf_form_html() %}
+      <input type="submit">
+    </form>
+    {{message}}
+    {% raw message %}
+    {% for l in list%}
+        {{l}}
+    {% end %}
+{% end %}
