@@ -5,29 +5,21 @@ import os
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
+import json
 
 
 class HomeHandler(tornado.web.RequestHandler):
 
-    def test_string(self, message):
-        return '<a href>%s</a>' % message
 
     def get(self, *args, **kwargs):
-        self.ui['test_function'] = self.test_string
-        self.render(
-            'login.html',
-            error="",
-            message="<h1>test</h1>",
-            list=[
-                "a",
-                'b',
-                'c'])
+        self.write("111")
 
 
 class OtherHandler(tornado.web.RequestHandler):
 
     def get(self, *args, **kwargs):
-        return 1
+        data = {'name': "hyf"}
+        return json.dump(data)
 
 
 class FormHandler(tornado.web.RequestHandler):
