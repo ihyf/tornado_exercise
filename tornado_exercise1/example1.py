@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import os
 import tornado.httpserver
@@ -27,10 +27,7 @@ class HomeHandler(tornado.web.RequestHandler):
 class OtherHandler(tornado.web.RequestHandler):
 
     def get(self, *args, **kwargs):
-        raise tornado.web.HTTPError(
-            status_code=416,
-            log_message='testing',
-            reason='unkown request, please visit 127.0.0.1:8888/')
+        return 1
 
 
 class FormHandler(tornado.web.RequestHandler):
